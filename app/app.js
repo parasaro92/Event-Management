@@ -1,7 +1,18 @@
-var myApp = angular.module("myApp", [])
+var myApp = angular
+  .module('myApp', ['ngRoute'])
+  .config(function($routeProvider, $locationProvider) {
 
-myApp.controller('myCtrl', function($scope){
+  $routeProvider
+    .when('/about', {
+      templateUrl: 'view/about.html'
+      // controller: 'myCtrl as vm'
+    })
 
-  var vm = this;
-  vm.firstName = 'Rascal';
-});
+    .when('/contact', {
+      templateUrl: 'view/contact.html'
+    })
+
+    .otherwise({redirectTo: '/'})
+
+    $locationProvider.html5Mode(true);
+})
