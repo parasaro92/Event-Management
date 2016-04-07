@@ -5,7 +5,12 @@ myApp.controller('formCtrl', function(eventFactory){
 
   vm.event = eventFactory.getAllEvent();
 
+  vm.categories = [{id: 1, name: 'Music', group: 'Entertainment'},{id: 2, name: 'Dance', group: 'Entertainment'},{id: 3, name: 'Football', group: 'Games'}, {id: 4, name: 'Cricket', group: 'Games'}];
+  vm.selectedOption = {id: 1, name: 'Music'};
+
   vm.submitForm = function(form) {
+
+    form.category = vm.selectedOption.id
     eventFactory.createEvent(angular.copy(form), vm.event);
     console.log(vm.event);
   }

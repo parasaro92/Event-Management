@@ -43,12 +43,8 @@
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventcategory" class="control-label">Category</labeorml>
-                <select class="form-control" ng-model="eventForm.category" data-width="100%" name="eventCategory">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select class="form-control" required ng-model="eventCtrl.selectedOption" ng-options="category.name group by category.group for category in eventCtrl.categories track by category.id" data-width="100%" name="eventCategory">
+                 
                 </select>
                 <p class="help-block">Select the event category</p>
               </div>
@@ -78,11 +74,30 @@
   </div>
 
   <div class="col-sm-8 col-md-6">
-      <table class="table table-striped">
+      <table class="table table-hover table-striped table-bordered">
     <!-- <div ng-repeat="event in eventCtrl.event"> -->
-        <tr><td>Event Name</td></tr>
-        <tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>
-        <tr ng-repeat-end><td>{{event.description}}</td></tr>
+      <thead>
+        <tr>
+          <th>Event Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Email</th>
+          <th>Location</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="event in eventCtrl.event">
+          <td>{{event.name}}</td>
+          <td>{{event.description}}</td>
+          <td>{{event.category}}</td>
+          <td>{{event.email}}</td>
+          <td>{{event.location}}</td>
+          <td>{{event.date}}</td>
+        </tr>
+      </tbody>
+        <!-- <tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>
+        <tr ng-repeat-end><td>{{event.description}}</td></tr> -->
       </table>
     </div>
   </div>
