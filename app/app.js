@@ -1,16 +1,18 @@
-var myApp = angular
+var myApp = angular 
   .module('myApp', ['ngRoute'])
   .config(function($routeProvider, $locationProvider) {
 
   $routeProvider
-    .when('/about', {
-      templateUrl: 'view/about.html'
-      // controller: 'myCtrl as vm'
+    .when('/add-event', {
+      templateUrl: 'view/add-event.html',
+      controller: 'formCtrl',
+      controllerAs: 'eventCtrl'
     })
 
-    .when('/contact', {
-      templateUrl: 'view/contact.html'
-    })
+    // .when('/contact/:parm1', {
+    //   templateUrl: 'view/contact.html',
+    //   controller: 'ContactCtrl as vm'
+    // })
 
     .otherwise({redirectTo: '/'})
 
