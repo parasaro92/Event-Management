@@ -58,6 +58,26 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 col-lg-6">
+              <div class="form-group">
+                <label for="eventSpecial" class="control-label">Special Event?</label>
+                <br>
+                <input type="radio" ng-model='eventCtrl.specialEvent' value='true'> Yes </label>
+                <input type="radio" ng-model='eventCtrl.specialEvent' value='false'> No </label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xs-12 col-lg-6">
+              <div class="form-group">
+                <label for="eventSpecialTypes" class="control-label">Special Event Type</label>
+                <div ng-repeat="type in eventCtrl.specialType">
+                  <input type="checkbox" name="eventSpecialType" ng-model='type.checked' value='true'> {{type.name}} </label>
+                </div>
+                <input type="checkbox" ng-model="eventCtrl.bothSelected" ng-click="eventCtrl.selectAllTypes()" name="selectAllTypes" value='false'> Both </label>
+              </div>
+            </div>
+          </div>
+
           <hr />
           
           <div class="row">

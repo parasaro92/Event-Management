@@ -7,6 +7,22 @@ myApp.controller('formCtrl', function(eventFactory){
 
   vm.categories = [{id: 1, name: 'Music', group: 'Entertainment'},{id: 2, name: 'Dance', group: 'Entertainment'},{id: 3, name: 'Football', group: 'Games'}, {id: 4, name: 'Cricket', group: 'Games'}];
   vm.selectedOption = {id: 1, name: 'Music'};
+  vm.specialEvent = 'true';
+
+  vm.specialType = [{name: 'Age Restricted', checked: false},{name: 'Luxory', checked: false}];
+
+  vm.selectAllTypes = function() {
+    if(vm.bothSelected) {
+      vm.bothSelected = true;
+    } else {
+      vm.bothSelected = false;
+    }
+
+    angular.forEach(vm.specialType, function(item){
+
+      item.checked = vm.bothSelected;
+    })
+  }
 
   vm.submitForm = function(form) {
 
