@@ -1,0 +1,39 @@
+<div class="col-sm-12">
+
+  Search: <input type="text" ng-model="search.$">
+  Search by Event Name: <input type="text" ng-model="search.name">
+  <!-- Search by Event Desc: <input type="text" ng-model="search.description"> -->
+  Search by Event Category: <input type="text" ng-model="search.category.name">
+
+  Exact Match? <input type="checkbox" ng-model="strict">
+
+  <button ng-click="search = undefined">Clear Filter</button>
+
+  <table class="table table-hover table-striped">
+    <!-- <div ng-repeat="event in eventCtrl.event"> -->
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Special</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="event in managerCtrl.eventList | filter: search: strict">
+        <td>{{event.name}}</td>
+        <td>{{event.description}}</td>
+        <td>{{event.category.name}}</td>
+        <td>{{event.email}}</td>
+        <td>{{event.location}}</td>
+        <td>{{event.date | date: 'yyyy-MM-dd'}}</td>
+        <td>{{event.specialEvent}}</td>
+      </tr>
+    </tbody>
+        <!-- <tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>
+        <tr ng-repeat-end><td>{{event.description}}</td></tr> -->
+  </table>
+</div>

@@ -1,10 +1,10 @@
 myApp.controller('formCtrl', function(eventFactory){
 
   var vm = this;
-  vm.event = [];
+  // vm.event = [];
   vm.eventForm = {};
   // vm.eventForm.date = new Date(2016,0,1);
-  vm.event = eventFactory.getAllEvent();
+  // vm.event = eventFactory.getAllEvent();
 
   vm.categories = [{id: 1, name: 'Music', group: 'Entertainment'},{id: 2, name: 'Dance', group: 'Entertainment'},{id: 3, name: 'Football', group: 'Games'}, {id: 4, name: 'Cricket', group: 'Games'}];
   vm.selectedOption = {id: 1, name: 'Music'};
@@ -27,12 +27,21 @@ myApp.controller('formCtrl', function(eventFactory){
 
   vm.submitForm = function(form) {
 
-    form.category = vm.selectedOption.id
+    form.category = vm.selectedOption
     eventFactory.createEvent(angular.copy(form), vm.event);
-    console.log(vm.event);
+    alert("event added successfully");
   }
 });
 
+myApp.controller('eventManagerCtrl', function(eventFactory, $filter){
+
+  var vm = this;
+
+  vm.eventList = eventFactory.getAllEvent();
+  // vm.eventList = filterFilter(vm.eventList, {name: 'Jungle Book', category: {name: 'Cinema'} });
+  vm.eventList = $filter('orderBy')(vm.eventList, 'category.name', true)
+
+});
 // myApp.controller('AboutCtrl', function($scope, $routeParams){
 
 //   // var vm = this;

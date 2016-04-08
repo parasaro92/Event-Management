@@ -9,10 +9,11 @@ var myApp = angular
       controllerAs: 'eventCtrl'
     })
 
-    // .when('/contact/:parm1', {
-    //   templateUrl: 'view/contact.html',
-    //   controller: 'ContactCtrl as vm'
-    // })
+    .when('/event-list', {
+      templateUrl: 'view/event-list.html',
+      controller: 'eventManagerCtrl',
+      controllerAs: 'managerCtrl'
+    })
 
     .otherwise({redirectTo: '/'})
 

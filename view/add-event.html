@@ -55,7 +55,7 @@
           <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
-                <label for="eventcategory" class="control-label">Category</labeorml>
+                <label for="eventcategory" class="control-label">Category</label>
                 <select class="form-control" required ng-model="eventCtrl.selectedOption" ng-options="category.name group by category.group for category in eventCtrl.categories track by category.id" data-width="100%" name="eventCategory">
                  
                 </select>
@@ -106,10 +106,10 @@
     </div>
   </div>
 
-  <div class="col-sm-8 col-md-6">
-      <table class="table table-hover table-striped">
-    <!-- <div ng-repeat="event in eventCtrl.event"> -->
-      <thead>
+  <!-- <div class="col-sm-8 col-md-6">
+    <table class="table table-hover table-striped">
+    <! <div ng-repeat="event in eventCtrl.event"> -->
+      <!-- <thead>
         <tr>
           <th>Event Name</th>
           <th>Description</th>
@@ -128,10 +128,10 @@
           <td>{{event.location}}</td>
           <td>{{event.date}}</td>
         </tr>
-      </tbody>
+      </tbody> -->
         <!-- <tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>
         <tr ng-repeat-end><td>{{event.description}}</td></tr> -->
-      </table>
-    </div>
-  </div>
+      <!-- </table> -->
+    <!-- </div> -->
+  <!-- </div>  -->
 </div>
