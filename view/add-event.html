@@ -1,5 +1,10 @@
 <div class="row">
   <div class="col-md-6 col-sm-8 col-lg-6">
+    <script type="text/ng-template" id="error-messages">
+      <div ng-message='required'>This field is required</div>  
+      <div ng-message='minlength'> Too Short </div>
+      <div ng-message='maxlength'> Too Long </div>
+    </script>
     
     <div class="panel panel-info">
       <div class="panel-heading"><h3>Add Event</h3></div>
@@ -7,17 +12,25 @@
         <form class="form" role="form" id="addEventForm" ng-submit='addEventForm.$valid && eventCtrl.submitForm(eventCtrl.eventForm)' novalidate name="addEventForm">
           <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
-              <div class="form-group">
+              <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$touched && addEventForm.eventName.$invalid, 'has-success': addEventForm.eventName.$touched && addEventForm.eventName.$valid}">
                 <label for="eventName" class="control-label">Name</label>
                 <input type="text" ng-model='eventCtrl.eventForm.name' required class="form-control" name="eventName" placeholder="Event name" ng-minlength='3' ng-maxlength='50'>
-                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventName.$invalid'>Please enter an event name btw 3 and 50.</p>
+                <div ng-messages="addEventForm.eventName.$dirty && addEventForm.eventName.$error">
+                  <div ng-message='required'> The Event Name is required </div>
+                  <div ng-message='minlength'> Please enter an Event Name</div>
+                  <div ng-message='maxlength'> The Event Name is too long. </div>
+                </div>
+                <!-- <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventName.$invalid'>Please enter an event name btw 3 and 50.</p> -->
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventDescription" class="control-label">Description</label>
                 <input type="text" ng-model='eventCtrl.eventForm.description' required class="form-control" name="eventDescription" placeholder="Event Description">
-                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventDescription.$invalid'>The event description</p>
+                <div ng-messages="addEventForm.eventDescription.$dirty && addEventForm.eventDescription.$error">
+                  <div ng-messages-include="error-messages"></div>
+                </div>
+                <!-- <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventDescription.$invalid'>The event description</p> -->
               </div>
             </div>
           </div>
