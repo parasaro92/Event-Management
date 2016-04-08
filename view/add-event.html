@@ -4,20 +4,20 @@
     <div class="panel panel-info">
       <div class="panel-heading"><h3>Add Event</h3></div>
       <div class="panel-body">
-        <form class="form" role="form" id="addEventForm" ng-submit='eventCtrl.submitForm(eventCtrl.eventForm)' novalidate name="addEventForm">
+        <form class="form" role="form" id="addEventForm" ng-submit='addEventForm.$valid && eventCtrl.submitForm(eventCtrl.eventForm)' novalidate name="addEventForm">
           <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventName" class="control-label">Name</label>
-                <input type="text" ng-model='eventCtrl.eventForm.name' class="form-control" name="eventName" placeholder="Event name">
-                <p class="help-block">The event name</p>
+                <input type="text" ng-model='eventCtrl.eventForm.name' required class="form-control" name="eventName" placeholder="Event name" ng-minlength='3' ng-maxlength='50'>
+                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventName.$invalid'>Please enter an event name btw 3 and 50.</p>
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventDescription" class="control-label">Description</label>
-                <input type="text" ng-model='eventForm.description' class="form-control" name="eventDescription" placeholder="Event Description">
-                <p class="help-block">The event description</p>
+                <input type="text" ng-model='eventCtrl.eventForm.description' required class="form-control" name="eventDescription" placeholder="Event Description">
+                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventDescription.$invalid'>The event description</p>
               </div>
             </div>
           </div>
@@ -26,15 +26,15 @@
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventDate" class="control-label">Date</label>
-                <input type="date" min='2015-01-01' ng-model='eventCtrl.eventForm.date' class="form-control" name="eventDate" placeholder="yyyy-MM-dd">
-                <p class="help-block">The event date</p>
+                <input type="text" min='2015-01-01' required ng-pattern='/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/' ng-model='eventCtrl.eventForm.date' required class="form-control" name="eventDate" placeholder="yyyy-MM-dd">
+                <p class="help-block" ng-show='addEventForm.eventDate.$invalid'>Please enter valid event date</p>
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventLocation" class="control-label">Location</label>
-                <input type="text" ng-model='eventCtrl.eventForm.location' class="form-control" name="eventLocation" placeholder="Event Description">
-                <p class="help-block">The event Location</p>
+                <input type="text" ng-model='eventCtrl.eventForm.location' required class="form-control" name="eventLocation" placeholder="Event Location">
+                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventLocation.$invalid'>Please enter an event Location</p>
               </div>
             </div>
           </div>
@@ -46,14 +46,14 @@
                 <select class="form-control" required ng-model="eventCtrl.selectedOption" ng-options="category.name group by category.group for category in eventCtrl.categories track by category.id" data-width="100%" name="eventCategory">
                  
                 </select>
-                <p class="help-block">Select the event category</p>
+                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventCategory.$invalid'>Select the  event category</p>
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventEmailInfo" class="control-label">Email</label>
-                <input type="text" ng-model='eventForm.email' class="form-control" name="eventEmailInfo" placeholder="Event Description">
-                <p class="help-block">The contact email</p>
+                <input type="text" ng-model='eventCtrl.eventForm.email' required class="form-control" name="eventEmailInfo" placeholder="Event Description">
+                <p class="help-block" ng-show='addEventForm.$dirty && addEventForm.eventEmailInfo.$invalid'>The contact email</p>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-lg-6">
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" ng-disabled="addEventForm.$invalid" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-default">Cancel</button>
               </div>
             </div>
