@@ -4,12 +4,12 @@
     <div class="panel panel-info">
       <div class="panel-heading"><h3>Add Event</h3></div>
       <div class="panel-body">
-        <form class="form" role="form" id="addEventForm" ng-submit='eventCtrl.submitForm(eventForm)' name="addEventForm">
+        <form class="form" role="form" id="addEventForm" ng-submit='eventCtrl.submitForm(eventCtrl.eventForm)' novalidate name="addEventForm">
           <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventName" class="control-label">Name</label>
-                <input type="text" ng-model='eventForm.name' class="form-control" name="eventName" placeholder="Event name">
+                <input type="text" ng-model='eventCtrl.eventForm.name' class="form-control" name="eventName" placeholder="Event name">
                 <p class="help-block">The event name</p>
               </div>
             </div>
@@ -26,14 +26,14 @@
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventDate" class="control-label">Date</label>
-                <input type="text" ng-model='eventForm.date' class="form-control" name="eventDate" placeholder="Event date">
+                <input type="date" min='2015-01-01' ng-model='eventCtrl.eventForm.date' class="form-control" name="eventDate" placeholder="yyyy-MM-dd">
                 <p class="help-block">The event date</p>
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
               <div class="form-group">
                 <label for="eventLocation" class="control-label">Location</label>
-                <input type="text" ng-model='eventForm.location' class="form-control" name="eventLocation" placeholder="Event Description">
+                <input type="text" ng-model='eventCtrl.eventForm.location' class="form-control" name="eventLocation" placeholder="Event Description">
                 <p class="help-block">The event Location</p>
               </div>
             </div>
@@ -63,12 +63,12 @@
               <div class="form-group">
                 <label for="eventSpecial" class="control-label">Special Event?</label>
                 <br>
-                <input type="radio" ng-model='eventCtrl.specialEvent' value='true'> Yes </label>
-                <input type="radio" ng-model='eventCtrl.specialEvent' value='false'> No </label>
+                <input type="radio" ng-model='eventCtrl.eventForm.specialEvent' value='true'> Yes </label>
+                <input type="radio" ng-model='eventCtrl.eventForm.specialEvent' value='false'> No </label>
               </div>
             </div>
             <div class="col-sm-6 col-xs-12 col-lg-6">
-              <div class="form-group">
+              <div class="form-group" ng-if="eventCtrl.eventForm.specialEvent == 'true'">
                 <label for="eventSpecialTypes" class="control-label">Special Event Type</label>
                 <div ng-repeat="type in eventCtrl.specialType">
                   <input type="checkbox" name="eventSpecialType" ng-model='type.checked' value='true'> {{type.name}} </label>
@@ -94,7 +94,7 @@
   </div>
 
   <div class="col-sm-8 col-md-6">
-      <table class="table table-hover table-striped table-bordered">
+      <table class="table table-hover table-striped">
     <!-- <div ng-repeat="event in eventCtrl.event"> -->
       <thead>
         <tr>
