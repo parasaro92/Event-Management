@@ -36,8 +36,13 @@ myApp.controller('formCtrl', function(eventFactory){
 myApp.controller('eventManagerCtrl', function(eventFactory, $filter){
 
   var vm = this;
+  // console.log('start');
+  eventFactory.getAllEvent().then(function(result){
 
-  vm.eventList = eventFactory.getAllEvent();
+    vm.eventList = result;
+    console.log(vm.eventList);
+  });
+  // console.log('end');
   // vm.eventList = filterFilter(vm.eventList, {name: 'Jungle Book', category: {name: 'Cinema'} });
   vm.eventList = $filter('orderBy')(vm.eventList, 'category.name', true)
 

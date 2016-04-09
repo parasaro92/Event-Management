@@ -15,7 +15,7 @@ var myApp = angular
       controllerAs: 'managerCtrl'
     })
 
-    .otherwise({redirectTo: '/'})
+    .otherwise('/')
 
     $locationProvider.html5Mode(true);
 })

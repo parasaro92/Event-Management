@@ -1,0 +1,57 @@
+[
+    {
+      "name": "Sherlock Holmes", 
+      "description": "A great movie", 
+      "date": "2016-05-27", 
+      "category": 
+      {
+        "id": "1", "name": "Cinema"
+      },
+      "email": "mystery@mys.com",
+      "location": "New York"
+    },
+    {
+      "name": "Jungle Book", 
+      "description": "Wow movie", 
+      "date": "2016-04-08", 
+      "category": 
+      {
+        "id": "2", "name": "Cinema"
+      },
+      "email": "jungle@man.com",
+      "location": "Dublis"
+    },
+    {
+      "name": "Cricket", 
+      "description": "A Good game", 
+      "date": "2016-05-25", 
+      "category": 
+      {
+        "id": "3", "name": "Entertainment"
+      },
+      "email": "powers@war.com",
+      "location": "Miami"
+    },
+    {
+      "name": "Cricket", 
+      "description": "A Good game", 
+      "date": "2016-05-25", 
+      "category": 
+      {
+        "id": "3", "name": "Entertainment"
+      },
+      "email": "powers@war.com",
+      "location": "Miami"
+    },
+    {
+      "name": "Swimming", 
+      "description": "Fun", 
+      "date": "2016-05-20", 
+      "category": 
+      {
+        "id": "4", "name": "Hobby"
+      },
+      "email": "powers@war.com",
+      "location": "Las Vegas"
+    }
+  ]
