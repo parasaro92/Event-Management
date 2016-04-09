@@ -1,4 +1,4 @@
-var myApp = angular 
+  var myApp = angular 
   .module('myApp', ['ngRoute', 'ngMessages'])
   .config(function($routeProvider, $locationProvider) {
 
@@ -12,7 +12,12 @@ var myApp = angular
     .when('/event-list', {
       templateUrl: 'view/event-list.html',
       controller: 'eventManagerCtrl',
-      controllerAs: 'managerCtrl'
+      controllerAs: 'managerCtrl',
+      resolve: {
+                  initialData: function(eventFactory) {
+                    return  eventFactory.getAllEvent();
+                  }
+      }
     })
 
     .otherwise('/')

@@ -1,0 +1,13 @@
+[
+    {
+      "name": "The Hunger Games", 
+      "description": "A great movie", 
+      "date": "2016-05-27", 
+      "category": 
+      {
+        "id": "1", "name": "Cinema"
+      },
+      "email": "mystery@mys.com",
+      "location": "New York"
+    }
+  ]

@@ -33,15 +33,15 @@
       "location": "Miami"
     },
     {
-      "name": "Cricket", 
-      "description": "A Good game", 
-      "date": "2016-05-25", 
+      "name": "Dance", 
+      "description": "A Great move", 
+      "date": "2016-06-12", 
       "category": 
       {
-        "id": "3", "name": "Entertainment"
+        "id": "5", "name": "Hobby"
       },
-      "email": "powers@war.com",
-      "location": "Miami"
+      "email": "fun@game.com",
+      "location": "Mount Fuji"
     },
     {
       "name": "Swimming", 
@@ -51,7 +51,7 @@
       {
         "id": "4", "name": "Hobby"
       },
-      "email": "powers@war.com",
+      "email": "fun@game.com",
       "location": "Las Vegas"
     }
   ]
