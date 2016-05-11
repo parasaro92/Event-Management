@@ -19,6 +19,7 @@
         <th>Email</th>
         <th>Location</th>
         <th>Date</th>
+        <th>Price</th>
         <th>Special</th>
       </tr>
     </thead>
@@ -30,7 +31,10 @@
         <td>{{event.email}}</td>
         <td>{{event.location}}</td>
         <td>{{event.date | date: 'yyyy-MM-dd'}}</td>
+        <td>{{event.price| currency: "$"}}</td>
         <td>{{event.specialEvent}}</td>
+
+        <td> <button class="btn btn-primary" ng-click=""> Delete </button></td>
       </tr>
     </tbody>
         <!-- <tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>

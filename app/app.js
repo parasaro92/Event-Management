@@ -1,5 +1,5 @@
   var myApp = angular 
-  .module('myApp', ['ngRoute', 'ngMessages'])
+  .module('myApp', ['ngRoute', 'ngMessages', 'ngMockE2E'])
   .config(function($routeProvider, $locationProvider) {
 
   $routeProvider

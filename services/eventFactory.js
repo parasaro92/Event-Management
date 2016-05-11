@@ -5,21 +5,23 @@ myApp.factory('eventFactory', function($http, $q){
 
   eventFactory.getAllEvent = function(){
 
-    var event1 = $http.get('events.json');
-    var event2 = $http.get('events2.json');
+    return $http.get('events');
 
-    return $q.all([event1, event2]).then(function(result){
+    // var event1 = $http.get('events.json');
+    // var event2 = $http.get('events2.json');
 
-      var tmpevents = [];
+    // return $q.all([event1, event2]).then(function(result){
 
-      angular.forEach(result, function(response){
-        tmpevents.push(response.data);
-      });
-      return tmpevents;
-    }).then(function(tmpevents){
-      var finalResults = tmpevents[0].concat(tmpevents[1]);
-      return finalResults;
-    })
+    //   var tmpevents = [];
+
+    //   angular.forEach(result, function(response){
+    //     tmpevents.push(response.data);
+    //   });
+    //   return tmpevents;
+    // }).then(function(tmpevents){
+    //   var finalResults = tmpevents[0].concat(tmpevents[1]);
+    //   return finalResults;
+    // })
 
     // var deferred = $q.defer();
     // $http.get('events.json').then(function(response){
